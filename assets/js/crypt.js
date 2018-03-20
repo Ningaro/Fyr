@@ -1,5 +1,5 @@
 var alphabet = "ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙХЖШЮЙЩЭФЪЁЦ";
-var fyrphabet = "ФЫР-";
+var fyrphabet = "МЯУ-";
 
 function encode(text)
 {
@@ -7,21 +7,21 @@ function encode(text)
 
     for (var  i = 0; i < text.length; i++) {
         var n = alphabet.indexOf(text[i].toUpperCase());
-        result += "ф";
+        result += "м";
         for (var j = 0; j <= n; j++) {
-            result += "ы";
+            result += "я";
             if (j > 1 && (n - j) % 4 == 0) {
                 for (var z = 0; z < (n - j) / 4; z++) {
-                    result += "p";
+                    result += "y";
                 }
                 break;
             }
         }
-        result += "р";
+        result += "у";
         if ((i+1) != text.length) result += '-';
     }
 
-    return result.replace(/-фр-/g, function(space) {
+    return result.replace(/-му-/g, function(space) {
         var random = Math.floor(Math.random() * 10);
         if (random > 6) {
             return " ";
@@ -36,9 +36,9 @@ function encode(text)
 }
 
 function decode(text) {
-    text = text.replace(/ф/g, "")
-        .replace(/р/g, "")
-        .replace(/p/g, "ыыыы")
+    text = text.replace(/м/g, "")
+        .replace(/у/g, "")
+        .replace(/y/g, "яяяя")
         .replace(/\<\3|\^\^|\(\ᵔ\ᴥ\ᵔ\)/g, "");
 
     var words = text.split(" ");
@@ -49,7 +49,7 @@ function decode(text) {
         var letters = words[i].split("-");
 
         for (var j = 0; j < letters.length; j++) {
-            var n = (letters[j].match(/ы/g) || []).length;
+            var n = (letters[j].match(/я/g) || []).length;
             if (typeof  alphabet[n - 1] != "undefined") result += alphabet[n - 1];
         }
 
