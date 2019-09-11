@@ -40,6 +40,7 @@ function decode(text) {
         .replace(/у/g, "")
         .replace(/y/g, "яяяя")
         .replace(/\<\3|\^\^|\(\ᵔ\ᴥ\ᵔ\)/g, "");
+console.log(text);
 
     var words = text.split(" ");
 
