@@ -6,7 +6,7 @@ function encode(text)
     var result = "";
 
     for (var  i = 0; i < text.length; i++) {
-        var n = alphabet.indexOf(text[i].toUpperCase());
+        var n = alphabet.indexOf(text[i]);
         result += "м";
         for (var j = 0; j <= n; j++) {
             result += "я";
